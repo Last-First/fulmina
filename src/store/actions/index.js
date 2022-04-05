@@ -1,0 +1,1 @@
+export { initCandidates, initQuestions, getApplication } from './service.js';
