@@ -12,7 +12,7 @@ import {
     ListItem,
 } from '@mui/material';
 import { NavLink } from 'react-router-dom';
-import classes from './list.css';
+import classes from './list.module.css';
 
 const ListCandidate = (props) => {
     const mobile = ['xs', 'sm'];

@@ -13,18 +13,3 @@
 .active{
     background-color: lightgray;
 }
-
-@media(min-width: 1024px){
-    .Link{
-        border: none;
-        padding: 0;
-        width: 120px;
-        color: #FFFFFF;
-        line-height: 95px;
-    }
-    .Link:hover,
-    .Link:active,
-    .active{
-        background-color: #252b30;
-    }
-}

@@ -1,1 +1,1 @@
-export { initCandidates, initQuestions, getApplication } from './service.js';
+export { initCandidates, initQuestions, getApplication, clearApplication } from './service.js';

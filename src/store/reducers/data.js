@@ -4,7 +4,12 @@ const initialState = {
     status: null,
     candidates: null,
     questions: null,
-    application: null,
+    // application: {
+    //     data: {
+    //         videos: []
+    //     }
+    // },
+    application: null
 }
 
 const reducer = (state = initialState, action) => {
@@ -25,6 +30,12 @@ const reducer = (state = initialState, action) => {
             return{
                 ...state,
                 application: action.data,
+                status: 200
+            };
+        case actionTypes.CLEAR_DATA_APPLICATION:
+            return{
+                ...state,
+                application: null,
                 status: 200
             };
         case actionTypes.SERVICE_DOWN:

@@ -18,6 +18,10 @@ export const setData = (data, response) => {
                 type: actionTypes.SET_DATA_APPLICATION,
                 data: data
             }
+        case 'clear':
+            return{
+                type: actionTypes.CLEAR_DATA_APPLICATION
+            }
         default:
             return{
                 type: actionTypes.SERVICE_DOWN
@@ -66,3 +70,9 @@ export const getApplication = (id) => {
         })
     };
 };
+
+export const clearApplication = () => {
+    return dispatch => {
+        dispatch(setData(null, 'clear'))
+    }
+}
