@@ -54,7 +54,7 @@ const ListCandidate = (props) => {
                     anchor="left"
                 >
                     <Toolbar>
-                        <Typography variant="h6" noWrap>Candidates</Typography>
+                        <Typography variant="h6" noWrap>Knockri Candidates</Typography>
                     </Toolbar>
                     <Divider />
                     <Box

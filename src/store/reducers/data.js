@@ -4,12 +4,8 @@ const initialState = {
     status: null,
     candidates: null,
     questions: null,
-    // application: {
-    //     data: {
-    //         videos: []
-    //     }
-    // },
-    application: null
+    application: null,
+    comments: {}
 }
 
 const reducer = (state = initialState, action) => {
@@ -38,6 +34,17 @@ const reducer = (state = initialState, action) => {
                 application: null,
                 status: 200
             };
+        case actionTypes.ADD_COMMENTS:
+            console.log(action.data, state.application)
+            if(state.comments[action.data.appId]){
+                state.comments[action.data.appId][action.data.qId] = action.data.comments
+            }else{
+                state.comments[action.data.appId] = {}
+                state.comments[action.data.appId][action.data.qId] = action.data.comments
+            }
+            return{
+                ...state,
+            }
         case actionTypes.SERVICE_DOWN:
             return {
                 ...state,

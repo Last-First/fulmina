@@ -1,9 +1,22 @@
+.container{
+    margin: 64px 20px 32px 250px;
+}
+
 .details {
     height: 325px;
     display: flex;
     flex-direction: column;
     border-radius: 4px !important;
 }
-.paper{
-    margin-left: 200px;
+
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.typography{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

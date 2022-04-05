@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../../store/actions/index';
 import {
     Card,
     CardContent,
@@ -10,10 +12,31 @@ import {
 } from '@mui/material';
 import classes from './videos.module.css';
 
-const Videos = (props) => (
-    <Card className={classes.card} variant="outlined">
+const Videos = (props) => {
+    const [comment, setComment] = useState('');
+    useEffect(()=>{
+        getComment();
+    }, [])
+
+    const commentHandler = (qId, comment) => {
+        props.onAddComment(props.id, qId, comment);
+    }
+
+    const getComment = () => {
+        if(props.id in props.comments){
+            console.log(props.data.questionId)
+            if(props.data.questionId in props.comments[props.id]){
+                console.log(props.comments[props.id][props.data.questionId])
+                setComment(props.comments[props.id][props.data.questionId])
+            }
+        }
+    }
+
+    return(
+
+    <Card className={classes.card}>
         <CardContent>
-            <Typography variant="h5" component="div">
+            <Typography variant="h5" mb={2} component="div">
                 {props.data.question}
             </Typography>
             <Container className={classes.container}>
@@ -30,11 +53,26 @@ const Videos = (props) => (
                 label="Comments"
                 multiline
                 rows={4}
-                defaultValue={props.data.comments}
+                value={comment}
+                margin="normal"
+                onChange={(e) => setComment(e.target.value)}
             />
-            <Button variant="outlined" className={classes.button}>Save</Button>
+            <Button variant="outlined" mb={3} className={classes.button} onClick={() => commentHandler(props.data.questionId, comment)}>Save</Button>
         </CardContent>
     </Card>
-)
+    )
+}
 
-export default Videos;
+const mapStateToProps = state => {
+    return {
+        comments: state.comments
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddComment: (appId, questionId, comment) => dispatch(actions.addComment(appId, questionId, comment))
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Videos);

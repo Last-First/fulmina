@@ -22,6 +22,12 @@ export const setData = (data, response) => {
             return{
                 type: actionTypes.CLEAR_DATA_APPLICATION
             }
+        case 'comments':
+            console.log(data)
+            return{
+                type: actionTypes.ADD_COMMENTS,
+                data: data,
+            }
         default:
             return{
                 type: actionTypes.SERVICE_DOWN
@@ -59,9 +65,9 @@ export const initQuestions = () => {
     };
 };
 
-export const getApplication = (id) => {
+export const getApplication = (appId, id) => {
     return dispatch => {
-        axios.get('/applications/' + id)
+        axios.get('/applications/' + appId)
         .then(response => {
             dispatch(setData(response, 'application'))
         }).catch(error => {
@@ -74,5 +80,16 @@ export const getApplication = (id) => {
 export const clearApplication = () => {
     return dispatch => {
         dispatch(setData(null, 'clear'))
+    }
+}
+
+export const addComment = (appId, qId, comments) => {
+    return dispatch => {
+        let obj = {
+            appId: appId,
+            qId: qId,
+            comments: comments
+        }
+        dispatch(setData(obj, 'comments'))
     }
 }
