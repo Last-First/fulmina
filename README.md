@@ -1,4 +1,4 @@
-# Getting Started with Knockri Candidate List
+# Getting Started with Fulmina
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -11,7 +11,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## API Usage
 
-API can be launched using json-server. You will need to run `npx json-server --watch api/api.json --port 8000` on another terminal pointed at the root level of the application.
+API can be launched using json-server.
+
+You will need to run `npx json-server --watch api/api.json --port 8000` on another terminal pointed at the root level of the application.
 
 To check the api, open [http://localhost:8000](http://localhost:8000) with the following endpoints:
 
@@ -20,3 +22,9 @@ To check the api, open [http://localhost:8000](http://localhost:8000) with the f
 | /candidates                  | Lists all available candidates                      |
 | /questions                   | Lists all available questions                       |
 | /applications                | Lists all available applications                    |
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
